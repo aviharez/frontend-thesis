@@ -72,11 +72,8 @@ const Hero = ({
         console.log(id)
         console.log(responData)
         console.log(res.data.values.id)
-        setTimeout(function() {
-          setResult(true)
-          setProcess(false)
-        }.bind(this), 3000)
-        
+        setResult(true)
+        setProcess(false)
       })
       .catch(err => {
         console.log(err)
