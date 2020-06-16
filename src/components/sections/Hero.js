@@ -6,7 +6,6 @@ import Button from '../elements/Button';
 import Input from '../elements/Input';
 
 import Fade from 'react-reveal/Fade';
-import { Tweet } from 'react-twitter-widgets';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 import loading from '../../assets/lottie/paper.gif';
