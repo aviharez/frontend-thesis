@@ -7,6 +7,7 @@ import Input from '../elements/Input';
 
 import Fade from 'react-reveal/Fade';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
+import { SearchOutlined } from '@ant-design/icons'
 
 import loading from '../../assets/lottie/paper.gif';
 
@@ -116,7 +117,7 @@ const Hero = ({
                               
                             </Input>
                             <Button color="primary">
-                                  <FiSearch />
+                                  <SearchOutlined />
                             </Button>
                       </form>
                   </div>
