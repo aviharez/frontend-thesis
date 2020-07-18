@@ -11,6 +11,9 @@ import { TwitterTweetEmbed } from 'react-twitter-embed';
 import loading from '../../assets/lottie/paper.gif';
 
 import API from '../../utils/Api';
+
+import './hero.css'
+
  
 const propTypes = {
   ...SectionProps.types
@@ -101,20 +104,21 @@ const Hero = ({
                     <p className="m-0 mb-32">
                     Welcome to Fake Tweet Detector. Find the truth behind the truth. Make sure the url you entered is complete.
                       </p>
-                    <div>
-                      <form style={{ display: 'inline-flex',flexDirection: 'row' }} onSubmit={onSubmit}>
-                        <Input 
-                          style={{ width: '500px' }} 
-                          id="url" type="text" label="url" labelHidden hasIcon="right" 
-                          placeholder="Enter twitter url here"
-                          value={tweetUrl}
-                          onChange={event => setTweetUrl(event.target.value)}>
-                        </Input>
-                        <Button color="primary">
-                            <FiSearch />
-                        </Button>
+                      <form className="form-search" onSubmit={onSubmit}>
+                      
+                            <Input  
+                              // style={{width: 500}}
+                              className="search-input"
+                              id="url" type="text" label="url" labelHidden hasIcon="right"
+                              placeholder="Enter twitter url here"
+                              value={tweetUrl}
+                              onChange={event => setTweetUrl(event.target.value)}>
+                              
+                            </Input>
+                            <Button color="primary">
+                                  <FiSearch />
+                            </Button>
                       </form>
-                    </div>
                   </div>
                 </div>
               </Fade>

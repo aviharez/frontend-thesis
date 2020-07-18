@@ -1,0 +1,17 @@
+.form-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-input {
+    width: 500px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .search-input {
+        width: 350px;
+    }
+  }
