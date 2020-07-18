@@ -54,11 +54,11 @@ const Hero = ({
 
   const [isResult, setResult] = useState(false)
 
-  const [id, setId] = useState()
+  const [tweetId, setTweetId] = useState('')
 
   useEffect(() => {
-    if (isResult) setId(responData.id.toString())
-  }, [responData, isProcessing, id])
+
+  }, [responData, isProcessing, tweetId])
 
   const onSubmit = async e => {
     e.preventDefault()
@@ -69,6 +69,7 @@ const Hero = ({
         setResponseData(res.data.values)
         setResult(true)
         setProcess(false)
+        setTweetId(res.data.values.id.toString())
       })
       .catch(err => {
         console.log(err)
@@ -123,16 +124,15 @@ const Hero = ({
                 <img src={loading} alt="loading..." />
               </Fade>
             )}
-            {isResult && id != null && (
+            {isResult && tweetId != null && (
               <Fade bottom>
                 <div>
                   <h2 className="mt-0 mb-16">
                   The result for</h2>
                   <div style={{display:'flex',justifyContent:'center'}}>
-                    <TwitterTweetEmbed tweetId='1272032398595682300' />
+                    <TwitterTweetEmbed tweetId={tweetId} />
                   </div>
                   <h1>{responData.result}</h1>
-            <p>{id}</p>
                   <Button color="primary" onClick={() => {
                     onBackPressed()
                   }}>Back</Button>
