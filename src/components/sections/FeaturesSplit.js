@@ -121,8 +121,8 @@ const FeaturesSplit = ({
   );
 
   const sectionHeader = {
-    title: 'Recent Searched Tweets',
-    paragraph: 'Many people are curious about the following tweets.'
+    title: 'Pencarian Terbaru',
+    paragraph: 'Banyak orang tertarik dengan tweet di bawah ini.'
   };
 
   const columns = React.useMemo(

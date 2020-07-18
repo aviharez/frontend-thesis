@@ -102,7 +102,7 @@ const Hero = ({
                   </h1>
                   <div className="container-xs">
                     <p className="m-0 mb-32">
-                    Welcome to Fake Tweet Detector. Find the truth behind the truth. Make sure the url you entered is complete.
+                    Temukan kebenaran tweet berita anda. Pastikan url tweet yang anda masukkan benar dan lengkap.
                       </p>
                       <form className="form-search" onSubmit={onSubmit}>
                       
