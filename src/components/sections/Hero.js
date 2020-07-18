@@ -60,6 +60,8 @@ const Hero = ({
 
   const [tweetId, setTweetId] = useState('')
 
+  const [isSuccess, setSuccess] = useState(false)
+
   useEffect(() => {
 
   }, [responData, isProcessing, tweetId])
@@ -69,6 +71,7 @@ const Hero = ({
     setProcess(true)
     await API.post('/tweets', { url: tweetUrl })
       .then(res => {
+        setSuccess(true)
         console.log(res.data)
         setResponseData(res.data.values)
         setResult(true)
@@ -76,7 +79,9 @@ const Hero = ({
         setTweetId(res.data.values.id.toString())
       })
       .catch(err => {
-        console.log(err)
+        setSuccess(false)
+        setResult(true)
+        setProcess(false)
       })
 
   }
@@ -132,12 +137,19 @@ const Hero = ({
             {isResult && tweetId != null && (
               <Fade bottom>
                 <div>
-                  <h2 className="mt-0 mb-16">
-                  The result for</h2>
-                  <div style={{display:'flex',justifyContent:'center'}}>
-                    <TwitterTweetEmbed tweetId={tweetId} />
-                  </div>
-                  <h1>{responData.result}</h1>
+                  {isSuccess ? (
+                    <>
+                      <h2 className="mt-0 mb-16">
+                      Hasil pencarian untuk</h2>
+                      <div style={{display:'flex',justifyContent:'center'}}>
+                        <TwitterTweetEmbed tweetId={tweetId} />
+                      </div>
+                      <h1>{responData.result}</h1>
+                    </>
+                  ) : 
+                  (
+                    <h3 style={{marginBottom: 30}}>Pencarian gagal. Silahkan periksa kembali url yang anda masukkan.</h3>
+                  )}                  
                   <Button color="primary" onClick={() => {
                     onBackPressed()
                   }}>Back</Button>
